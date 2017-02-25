@@ -8,7 +8,7 @@ These bots will usually follow the same install process, see below.
 If I have made a bot for you, it can be found by entering the folder with your Reddit username.
 
 **Installation:**
-- Download and install Python 3.6 or up.
+- Download and install Python 3.5.2 or up.
 - Download your bot(s) files.
 - Navigate to the directory of your bot.
 - Run `python -m pip install -r requirements.txt`
