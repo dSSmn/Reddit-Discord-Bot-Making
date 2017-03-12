@@ -61,7 +61,7 @@ async def c_apply(ctx, steamprofile : str, age : int, *, timezone : str):
     server_users = all_users.get(server.id, {})
 
     if author.id in server_users:
-        await bot.say('You are already in the database!')
+        await bot.send_message(author, 'You are already in the database!')
         return
 
     if validators.url(steamprofile):
@@ -80,7 +80,7 @@ async def c_apply(ctx, steamprofile : str, age : int, *, timezone : str):
     try:
         sid = response['steamid']
     except:
-        await bot.say('Steam profile not valid.') # Handle invalid Steam IDs.
+        await bot.send_message(author, 'Steam profile not valid.') # Handle invalid Steam IDs.
         return
 
 
@@ -95,7 +95,7 @@ async def c_apply(ctx, steamprofile : str, age : int, *, timezone : str):
     all_users[server.id] = server_users
     await users.put('users', all_users)
 
-    await bot.say('👍') # Command ran to completion. Yay!
+    await bot.send_message(author, '👍') # Command ran to completion. Yay!
 
 
 
@@ -114,7 +114,7 @@ async def c_view(ctx, user : discord.Member=None):
     server_users = all_users.get(ctx.message.server.id, {})
 
     if user.id not in server_users:
-        await bot.say('You/that user is not in the database.')
+        await bot.send_message(ctx.message.author, 'You/that user is not in the database.')
         return
 
     user_data = server_users.get(user.id, {})
